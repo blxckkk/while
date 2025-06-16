@@ -1,0 +1,124 @@
+#include <stdio.h>
+
+void exercicio() {
+    int repeticoes;
+
+    printf("=== EXERCICIO 1 - LACO FOR ===\n");
+    printf("Quantas vezes voce quer repetir a mensagem? ");
+    scanf("%d", &repeticoes);
+
+    if (repeticoes <= 0) {
+        printf("Por favor, digite um numero valido maior que 0.\n");
+        return;
+    }
+
+    printf("\n");
+    for (int i = 1; i <= repeticoes; i++) {
+        printf("%d. Ola, mundo!\n", i);
+    }
+    printf("\n");
+}
+
+void exercicio2() {
+    int numero;
+
+    printf("=== EXERCICIO 2 - LACO WHILE ===\n");
+    printf("Digite um numero menor que 100: ");
+    scanf("%d", &numero);
+
+    if (numero <= 0 || numero >= 100) {
+        printf("Por favor, digite um numero valido entre 1 e 100.\n");
+        return;
+    }
+
+    printf("Numeros de 1 ate %d:\n", numero);
+
+    int i = 1;
+    while (i <= numero) {
+        printf("%d ", i);
+        if (i % 10 == 0) printf("\n");
+        i++;
+    }
+    printf("\n\n");
+}
+
+void exercicio3() {
+    int numero;
+
+    printf("=== EXERCICIO 3 - LAcO DO...WHILE ===\n");
+
+    do {
+        printf("Digite um numero positivo: ");
+        scanf("%d", &numero);
+
+        if (numero <= 0) {
+            printf("Numero invalido! Digite um numero positivo.\n");
+        }
+    } while (numero <= 0);
+
+    if (numero >= 100) {
+        printf("O numero %d ja e maior ou igual a 100.\n", numero);
+        return;
+    }
+
+    printf("Numeros de %d ate 100:\n", numero);
+
+    int i = numero;
+    do {
+        printf("%d ", i);
+        if ((i - numero + 1) % 10 == 0) printf("\n");
+        i++;
+    } while (i <= 100);
+    printf("\n\n");
+}
+
+int main() {
+    int opcao;
+
+    printf("EXERCICIOS DE LACOS DE REPETICAO\n");
+    printf("================================\n\n");
+
+    do {
+        printf("Escolha um exercicio:\n");
+        printf("1 - Exercicio 1 (FOR)\n");
+        printf("2 - Exercicio 2 (WHILE)\n");
+        printf("3 - Exercicio 3 (DO...WHILE)\n");
+        printf("4 - Executar todos\n");
+        printf("0 - Sair\n");
+        printf("Opcao: ");
+        scanf("%d", &opcao);
+        printf("\n");
+
+        switch (opcao) {
+            case 1:
+                exercicio();
+                break;
+            case 2:
+                exercicio2();
+                break;
+            case 3:
+                exercicio3();
+                break;
+            case 4:
+                exercicio();
+                exercicio2();
+                exercicio3();
+                break;
+            case 0:
+                printf("Saindo...\n");
+                break;
+            default:
+                printf("Opcao invalida!\n\n");
+        }
+
+        if (opcao != 0) {
+            printf("Pressione Enter para continuar...");
+            getchar();
+            getchar();
+            printf("\n");
+        }
+
+    } while (opcao != 0);
+
+    return 0;
+}
